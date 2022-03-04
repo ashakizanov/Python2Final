@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>FINAL</title>
+</head>
+<body>
+    <section class="font-serif bg-white container mx-auto px-5">
+        <div class="flex flex-col items-center py-8">
+            <div class="flex flex-col w-full mb-12 text-left">
+                <div class="w-full mx-auto lg:w-1/2">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="h-10 w-20 flex-2 w-fit h-fit px-2 py-1 text-sm border  border-black">Upload</button>
+                    </form>
+                    {% if img %}
+                    <h3>Image recognised</h3>
+                    <p class="text-sky-400">{{ img.title }}</p>
+                    <img src="{{ img.image.url}}" alt="connect" style="max-height:300px">
+                    {% endif %}
+                </div>
+             </div>
+        </div>
+           
+    </section>
+</body>
+</html>
